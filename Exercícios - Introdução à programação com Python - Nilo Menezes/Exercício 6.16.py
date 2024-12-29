@@ -15,5 +15,6 @@ while fim > 1:
     if not trocou:
         break
     fim -= 1
+print(lista)
 for valor in lista:
     print(valor)
