@@ -23,7 +23,12 @@ def apaga():
     nome = pede_nome()
     p = pesquisa(nome)
     if p!=None:
-        del agenda[p]
+        print("A informação será apagada. Continuar?")
+        confirmação = int(input("Se sim, digite 1. Se não, digite 2."))
+        if confirmação == 2:
+            print("Apagamento cancelado!")
+        else:
+            del agenda[p]
     else:
         print("Nome não encontrado.")
 def altera():
@@ -32,10 +37,15 @@ def altera():
         nome = agenda[p][0]
         telefone = agenda[p][1]
         print("Encontrado:")
-        mostra_dados(nome, telefone)
+        mostra_dados(p, nome, telefone)
         nome = pede_nome()
         telefone = pede_telefone()
-        agenda[p]=[nome, telefone]
+        print("A informação será alterada. Continuar?")
+        confirmação = int(input("Se sim, digite 1. Se não, digite 2."))
+        if confirmação == 1:
+            agenda[p] = [nome, telefone]
+        else:
+            print("Alteração cancelada.")
     else:
         print("Nome não encontrado.")
 def lista():
