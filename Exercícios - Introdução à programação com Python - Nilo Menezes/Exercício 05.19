@@ -1,0 +1,41 @@
+#exercício 5.19
+#python
+
+valor=float(input("Digite o valor a pagar: "))                        #entrada do usuário
+unidades=0                                                            #contador que registra o número de cédulas de cada valor
+atual=200.00                                                          #valor da maior nota possível
+apagar=valor                                                          #débito a pagar
+
+while True:                                                           #loop
+    if atual<=apagar:                                                 #verifica se o débito é maior que a nota com o maior valor
+        apagar-=atual                                                 #se sim, retira do débito o valor da nota
+        unidades+=1                                                   #acrescenta uma unidade ao contador de notas
+    else:                                                             
+        print("%d unidade(s) de R$%3.2f" % (unidades, atual))         #imprime o número de cédulas utilizadas para diminuir o débito
+        if apagar == 0:                                               #sai do loop se o débito for igual a 0
+            break
+        elif atual == 200.00:                                         #caso o débito seja menor que 200, passa a utilizar a nota de 100
+            atual = 100.00
+        elif atual == 100.00:                                         #caso o débito seja menor que 100, passa a utilizar a nota de 50
+            atual = 50.00
+        elif atual == 50.00:                                          #caso o débito seja menor que 50, passa a utilizar a nota de 20
+            atual = 20.00
+        elif atual == 20.00:                                          #caso o débito seja menor que 20, passa a utilizar a nota de 10
+            atual = 10.00
+        elif atual == 10.00:                                          #caso o débito seja menor que 10, passa a utilizar a nota de 5
+            atual = 5.00
+        elif atual == 5.00:                                           #caso o débito seja menor que 5, passa a utilizar a nota de 1
+            atual = 1.00
+        elif atual == 1.00:                                           #caso o débito seja menor que 1, passa a utilizar a moeda de 0,50
+            atual = 0.50
+        elif atual == 0.50:                                           #caso o débito seja menor que 0,50, passa a utilizar a moeda de 0,25
+            atual = 0.25
+        elif atual == 0.25:                                           #caso o débito seja menor que 0,25, passa a utilizar a moeda de 0,10
+            atual = 0.10
+        elif atual == 0.10:                                           #caso o débito seja menor que 0,10, passa a utilizar a moeda de 0.05
+            atual = 0.05
+        elif atual == 0.05:                                           #caso o débito seja menor que 0,05, passa a utilizar a moeda de 0.01
+            atual = 0.01
+        elif atual == 0.01:                                           #caso o débito seja menor que 0,01, a referência se torna 0
+            atual = 0
+        unidades=0                                                    #reseta o contador das unidades de cada nota/moeda
