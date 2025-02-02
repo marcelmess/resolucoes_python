@@ -1,5 +1,4 @@
 #exercício 5.19
-#python
 
 valor=float(input("Digite o valor a pagar: "))                        #entrada do usuário
 unidades=0                                                            #contador que registra o número de cédulas de cada valor
