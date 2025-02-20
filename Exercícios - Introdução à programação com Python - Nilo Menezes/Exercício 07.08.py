@@ -4,7 +4,7 @@ entrada = int(input("Digite um número:"))                                      
 palavra = lista_de_palavras[índice]                                                     #registra em uma variável o elemento da lista de palavras correspondente no indice ao valor aleatório 
 for x in range(30):                                                                     #imprime 30 linhas vazias para esconder o número de entrada do usuário no console
     print()
-digitadas = []                                                                          #registra em uma variável uma lista vazia que armazenará futuros letras como elementos
+digitadas = []                                                                          #registra em uma variável uma lista vazia que armazenará futuras letras como elementos
 acertos = []                                                                            #registra em uma variável uma lista vazia que armazenará as letras digitadas pelo usuário que estiver na palavra do elemento escolhido da lista de palavras
 erros = 0                                                                               #registra em uma variável o valor numérico zero, criando um contador
 while True:                                                                             #estabelece um loop
