@@ -29,36 +29,36 @@ def apaga():                                                                    
 def altera():                                                                      #define uma função sem parâmetros
     p = pesquisa(pede_nome())                                                      #registra na variável local "p" o resultado da convocação da função "pesquisa", passando como parâmetro o resultado da convocação da função "pede_nome"
     if p!=None                                                                     #se o valor da variável local "p" for diferente de nada
-        nome = agenda[p][0]                                                        
-        telefone = agenda[p][1]
-        print("Encontrado:")
-        mostra_dados(nome, telefone)
-        nome = pede_nome()
-        telefone = pede_telefone()
-        agenda[p]=[nome, telefone]
-    else:
-        print("Nome não encontrado.")
-def lista():
-    print("\nAgenda\n\n------")
-    for e in agenda:
-        mostra_dados(e[0], e[1])
-        print("------\n")
-def lê():
-    global agenda
-    nome_arquivo = pede_nome_arquivo()
-    arquivo = open(nome_arquivo, "r", encoding="utf-8")
-    agenda = []
-    for l in arquivo.readlines():
-        nome, telefone = l.strip().split("#")
-        agenda.append([nome, telefone])
-        arquivo.close()
-def grava():
-    nome_arquivo = pede_nome_arquivo()
-    arquivo = open(nome_arquivo, "w", encoding="utf-8")
-    for e in agenda:
-        arquivo.write("%s#%s\n" % (e[0], e[1]))
-        arquivo.close()
-def valida_faixa_inteiro(pergunta, inicio, fim):
+        nome = agenda[p][0]                                                        #registra na variável local "nome" o primeiro valor da lista registrada na variável local "p"
+        telefone = agenda[p][1]                                                    #registra na variável local "telefone" o segundo valor da lista registrada na variável local "p"    
+        print("Encontrado:")                                                       #informa no console que o contato foi encontrado
+        mostra_dados(nome, telefone)                                               #convoca a função "mostra_dados" passando como parâmetros, respectivamente, os valores registrados nas variáveis locais "nome" e "telefone"
+        nome = pede_nome()                                                         #registra na variável "nome" o resultado da convocação da função "pede_nome()"
+        telefone = pede_telefone()                                                 #registra na variável "telefone" o resultado da convocação da função "pede_telefone()" 
+        agenda[p]=[nome, telefone]                                                 #sobreescreve a lista de "p" com uma nova lista formada pelos dois novos valores de "nome" e "telefone"
+    else:                                                                          #se não for,
+        print("Nome não encontrado.")                                              #informa no console que o contato não foi encontrada
+def lista():                                                                       #define uma função sem parâmetros
+    print("\nAgenda\n\n------")                                                    #informa no console um título
+    for e in agenda:                                                               #estabelece que, para cada elemento da lista da variável "agenda",
+        mostra_dados(e[0], e[1])                                                   #convoca a função "mostra_dados" passando como parâmetros o primeiro e o segundo valor do elemento lista
+        print("------\n")                                                          #produz no console uma linha de separação visual
+def lê():                                                                          #define uma função sem parâmetros
+    global agenda                                                                  #que utiliza a variável globla "agenda"
+    nome_arquivo = pede_nome_arquivo()                                             #registra na variável local "nome_arquivo" o resultado da convocação da função "pede_nome_arquivo"
+    arquivo = open(nome_arquivo, "r", encoding="utf-8")                            #registra na variávle local "arquivo" o resultado da convocação da função "open" passando como parâmetros os valores apresentados entre parênteses
+    agenda = []                                                                    #registra na variável global "agenda" uma lista vazia
+    for l in arquivo.readlines():                                                  #estabelece que, para cada linha do arquivo de texto registrado na variável "arquivo"
+        nome, telefone = l.strip().split("#")                                      #registra nas variáveis locais "nome" e "telefone" as informações da linha em consideração
+        agenda.append([nome, telefone])                                            #insere na variável global "agenda" uma nova lista de contato contendo as informações de "nome" e "telefone"
+        arquivo.close()                                                            #fecha o arquivo de texto aberto anteriormente
+def grava():                                                                       #define uma função sem parâmetros
+    nome_arquivo = pede_nome_arquivo()                                             #registra na variável local "nome_arquivo" o resultado da convocação da função "pede_nome_arquivo"
+    arquivo = open(nome_arquivo, "w", encoding="utf-8")                            #registra na variávle local "arquivo" o resultado da convocação da função "open" passando como parâmetros os valores apresentados entre parênteses
+    for e in agenda:                                                               #estabelece que, para cada elemento da lista da variável "agenda"
+        arquivo.write("%s#%s\n" % (e[0], e[1]))                                    #escreve no arquivo de texto o primeiro e o segundo valor do elemento considerado da lista "agenda"
+        arquivo.close()                                                            #fecha o arquivo de texto aberto anteriormente
+def valida_faixa_inteiro(pergunta, inicio, fim):    
     while True:
         try:
             valor = int(input(pergunta))
