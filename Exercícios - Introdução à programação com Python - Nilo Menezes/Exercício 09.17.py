@@ -58,23 +58,23 @@ def grava():                                                                    
     for e in agenda:                                                               #estabelece que, para cada elemento da lista da variável "agenda"
         arquivo.write("%s#%s\n" % (e[0], e[1]))                                    #escreve no arquivo de texto o primeiro e o segundo valor do elemento considerado da lista "agenda"
         arquivo.close()                                                            #fecha o arquivo de texto aberto anteriormente
-def valida_faixa_inteiro(pergunta, inicio, fim):    
-    while True:
-        try:
-            valor = int(input(pergunta))
-            if inicio <=valor <=fim:
-                return(valor)
-        except ValueError:
-            print("Valor inválido, favor digitar entre %d e %d" % (inicio, fim))
-def qtd_agenda():
-    if len(agenda) > 1:
-        print("Há %d contatos na agenda!" % (len(agenda)))
-    elif len(agenda) == 1:
-        print("Há um único contato na agenda!")
-    else:
+def valida_faixa_inteiro(pergunta, inicio, fim):                                   #define uma função com três parâmetros
+    while True:                                                                    #estabelece um loop infinito
+        try:                                                                       #tenta executar as seguintes linhas:
+            valor = int(input(pergunta))                                           #registra na variável local "valor" um valor numérico informado pelo usuário
+            if inicio <=valor <=fim:                                               #se o valor da variável "valor" for maior que o segundo parâmetro da função e menor ou igual ao terceiro parâmetro
+                return(valor)                                                      #retorna à função o valor da variável "valor"
+        except ValueError:                                                         #caso ocorra um erro, exibe uma mensagem de exceção que informa
+            print("Valor inválido, favor digitar entre %d e %d" % (inicio, fim))   #a faixa de números permitida para a entrada 
+def qtd_agenda():                                                                  #define uma função sem parâmetros
+    if len(agenda) > 1:                                                            #que verifica se o tamanho da lista "agenda" é maior que 1
+        print("Há %d contatos na agenda!" % (len(agenda)))                         #se for, informa a quantidade de elementos na lista "agenda"
+    elif len(agenda) == 1:                                                         #se for, por sua vez, igual a 1:
+        print("Há um único contato na agenda!")                                    #informa no console ao usuário que há apenas um único elemento na lista "agenda"
+    else:                                                                          #caso contrário, informa no console ao usuário que não há elementos na lista "agenda"
         print("Não há contatos na agenda.")
-def menu():
-    print("""
+def menu():                                                                        #define uma função sem parâmetros que apresenta no console as opções do programa
+    print("""                                                                      
         1 - Novo
         2 - Altera
         3 - Apaga
@@ -83,21 +83,21 @@ def menu():
         6 - Lê
         0 - Sai
         """)
-    qtd_agenda()
-    return valida_faixa_inteiro("Escolha uma opção: ",0,6)
-while True:
-    opção = menu()
-    if opção == 0:
-        break
-    elif opção == 1:
-        novo()
-    elif opção == 2:
-        altera()
-    elif opção == 3:
-        apaga()
-    elif opção == 4:
-        lista()
-    elif opção == 5:
-        grava()
-    elif opção == 6:
-        lê()
+    qtd_agenda()                                                                   #convocação a função "qtd_agenda()"
+    return valida_faixa_inteiro("Escolha uma opção: ",0,6)                         #retorna a convocação da função "valida_faixa_inteiro()", passando como parâmetros os valores "escolha uma opção:", "0" e "6"
+while True:                                                                        #estabelece um loop infinito
+    opção = menu()                                                                 #registra na variável local "opção" a convocação da função "menu()"
+    if opção == 0:                                                                 #e verifica se o valor da variável opção for igual a 0
+        break                                                                      #se for, encerra o programa
+    elif opção == 1:                                                               #e verifica se o valor da variável opção for igual a 1
+        novo()                                                                     #se for, convoca a função novo()
+    elif opção == 2:                                                               #e verifica se o valor da variável opção for igual a 2
+        altera()                                                                   #se for, convoca a função altera()
+    elif opção == 3:                                                               #e verifica se o valor da variável opção for igual a 3
+        apaga()                                                                    #se for, convoca a função apaga()
+    elif opção == 4:                                                               #e verifica se o valor da variável opção for igual a 4
+        lista()                                                                    #se for, convoca a função lista()
+    elif opção == 5:                                                               #e verifica se o valor da variável opção for igual a 5
+        grava()                                                                    #se for, convoca a função grava()
+    elif opção == 6:                                                               #e verifica se o valor da variável opção for igual a 6
+        lê()                                                                       #se for, convoca a função lê()
